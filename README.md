@@ -7,10 +7,10 @@ Il tuo collega, probabilmente distratto da un gatto o un pappagallo, ha creato u
 1. Monta un componente React all’interno dell’elemento con classe .lista-animali.
 
 2. Il componente deve includere:
-- Un elemento <details> con titolo "Animali", che contiene:
-- Una lista <ul> statica che viene creata a partire da un array di stringhe (animals) dove ciascuna stringa rappresenta il nome di un animale.
+- Un elemento con titolo "Animali", che contiene:
+- Una lista  statica che viene creata a partire da un array di stringhe (animals) dove ciascuna stringa rappresenta il nome di un animale.
 
-Obiettivo: Mostrare la struttura base della lista di animali con un <details> che può essere espanso o contratto.
+Obiettivo: Mostrare la struttura base della lista di animali con un accordion che può essere espanso o contratto.
 
 - 📌 Milestone 2: Aggiungere Animali Casuali
 1. Trasforma l’array animals usando useState (l’array è inizialmente vuoto).

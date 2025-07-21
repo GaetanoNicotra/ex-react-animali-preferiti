@@ -6,25 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I miei animali Preferiti</title>
+    <!-- setup file HTML -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <!-- creazione componente React -->
     <script type="text/babel">
         const Accordion = () => {
+            const animals = ['Pappagalo', 'Cane', 'Serpente', 'Elefante', 'Gorilla']
             return <details>
                 <summary>Animali</summary>
                 <ul>
-                    <li>Cane</li>
+                    {animals.map(a => {
+                        return <li>{a}</li>
+                    })}
                 </ul>
             </details>
         }
-
-
     </script>
+    <!-- montaggio del componente nel DOM -->
     <script type="text/babel">
         const { createRoot } = ReactDOM;
-        const elementoDaRecuperare = document.querySelector('.lista-animali');
-        const root = createRoot(elementoDaRecuperare)
+        const listaAnimali = document.querySelector('.lista-animali');
+        const root = createRoot(listaAnimali)
         root.render(<Accordion />)
     </script>
 
