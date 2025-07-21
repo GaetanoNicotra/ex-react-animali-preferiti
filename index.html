@@ -6,24 +6,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I miei animali Preferiti</title>
+
     <!-- setup file HTML -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
     <!-- creazione componente React -->
     <script type="text/babel">
+        const { useState } = React;
+
         const Accordion = () => {
-            const animals = ['Pappagalo', 'Cane', 'Serpente', 'Elefante', 'Gorilla']
-            return <details>
-                <summary>Animali</summary>
-                <ul>
-                    {animals.map(a => {
-                        return <li>{a}</li>
-                    })}
-                </ul>
-            </details>
+
+            const [animalsStatic, setAnimalsStatic] = useState(['Scoiattolo', 'Rana', 'Serpente', 'Elefante', 'Gorilla']);
+            const animalsChoices = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
+            const addAnimal = () => {
+                const indexRandom = Math.floor(Math.random() * animalsChoices.length);
+                const animalRandom = animalsChoices[indexRandom];
+                setAnimalsStatic(curr => [...curr, animalRandom]);
+            }
+
+            return (
+                <div>
+                    <button onClick={addAnimal}>Aggiungi Animale Casuale</button>
+                    <details>
+                        <summary>Animali</summary>
+                        <ul>
+                            {animalsStatic.map((a, index) => {
+                                return <li key={index}>{a}</li>
+                            })}
+                        </ul>
+                    </details>
+                </div>
+            );
         }
     </script>
+
     <!-- montaggio del componente nel DOM -->
     <script type="text/babel">
         const { createRoot } = ReactDOM;
@@ -31,7 +49,7 @@
         const root = createRoot(listaAnimali)
         root.render(<Accordion />)
     </script>
-
+    <!-- stile in css -->
     <style>
         body {
             font-family: Arial, sans-serif;
